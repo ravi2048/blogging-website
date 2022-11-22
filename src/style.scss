@@ -1,0 +1,520 @@
+$lightGreen: #b9e7e7;
+
+// every browser set some default padding and margin for each html element
+// so need to reset all html elements default padding and margin
+body,
+p,
+div,
+ul,
+ol,
+li,
+span,
+strong,
+h1,
+h2,
+h3,
+img {
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  .container {
+    //login and register
+    .auth {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      background-color: $lightGreen;
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        background-color: #fff;
+        padding: 20px;
+        width: 200px;
+
+        input {
+          padding: 7px;
+          border: none;
+          outline: none;
+          border-bottom: 1px solid #000;
+        }
+
+        button {
+          padding: 10px;
+          border: none;
+          background-color: teal;
+          cursor: pointer;
+          color: white;
+        }
+
+        span {
+          text-align: center;
+        }
+      }
+    }
+
+    //navbar
+    .navbar {
+      background-color: $lightGreen;
+      .container {
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .logo {
+          display: flex;
+          gap: 1rem;
+          justify-content: center;
+          align-items: center;
+
+          .site-name {
+            font-size: x-large;
+            font-family: cursive, monospace;
+          }
+          img {
+            height: 2.5rem;
+          }
+        }
+
+        .links {
+          display: flex;
+          gap: 1rem;
+          text-transform: uppercase;
+          font-size: large;
+
+          button {
+            margin-left: 5px;
+            background-color: white;
+            color: teal;
+            border: teal 1px solid;
+            cursor: pointer;
+            font-size: medium;
+            border-radius: 0.2rem;
+            padding: 5px;
+
+            &:hover {
+              background-color: $lightGreen;
+              border: 1px solid white;
+              color: black;
+            }
+          }
+          .link {
+            text-decoration: none;
+            padding: 5px;
+          }
+        }
+      }
+    }
+
+    //footer
+    .footer {
+      margin-top: 100px;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      align-items: center;
+      padding: 10px;
+      background-color: $lightGreen;
+      img {
+        height: 2rem;
+      }
+    }
+
+    //home
+    .home {
+      width: 85%;
+      margin: 0 auto;
+      min-height: 60vh;
+
+      .posts {
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        gap: 100px;
+
+        .post {
+          display: flex;
+          gap: 100px;
+          &:nth-child(even) {
+            flex-direction: row-reverse;
+          }
+
+          .image {
+            flex: 2;
+            position: relative;
+
+            img {
+              width: 100%;
+              height: 300px;
+              object-fit: cover; //to maintain the aspect ratio
+              border-radius: 1rem;
+            }
+
+            &::after {
+              position: absolute;
+              content: "";
+              height: 300px;
+              width: 100%;
+              background-color: $lightGreen;
+              top: 20px;
+              left: 20px;
+              z-index: -1;
+              border-radius: 1rem;
+            }
+          }
+
+          .content {
+            flex: 3;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            h1 {
+              font-size: 48px;
+            }
+            .ql-editor {
+              padding: 0;
+              p {
+                font-size: 1rem;
+              }
+            }
+
+            .link button {
+              padding: 5px 8px;
+              background-color: white;
+              color: teal;
+              border: teal 1px solid;
+              cursor: pointer;
+
+              &:hover {
+                background-color: $lightGreen;
+                border: 1px solid white;
+                color: black;
+              }
+            }
+          }
+        }
+      }
+
+      .alert {
+        position: fixed;
+        top: 2rem;
+        width: 30%;
+        margin-left: 50%;
+        transform: translateX(-60%);
+        border: 1px solid black;
+        padding: 0.6rem;
+        border-radius: 10px;
+        background-color: beige;
+        animation: slideDown 0.3s linear;
+        p {
+          font-weight: 500;
+        }
+        button {
+          margin-left: 100%;
+          transform: translateX(-100%);
+          cursor: pointer;
+          color: white;
+          background-color: teal;
+          border: 1px solid teal;
+          padding: 3px;
+          height: 2rem;
+          width: 3rem;
+          border-radius: 0.2rem;
+        }
+      }
+    }
+
+    //single post
+    .post {
+      width: 85%;
+      margin: 0 auto;
+      margin-top: 2rem;
+
+      .container {
+        display: flex;
+        gap: 1rem;
+        .section-1 {
+          position: relative;
+          flex: 3;
+          .image {
+            img {
+              max-height: 300px;
+              width: 100%;
+              object-fit: cover;
+            }
+          }
+
+          .meta-data {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 3rem;
+            padding: 5px;
+            .author-details {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              height: 100%;
+              img {
+                height: 80%;
+              }
+              .name {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: left;
+
+                span {
+                  font-size: 0.8rem;
+                  font-weight: bold;
+                }
+              }
+            }
+
+            .post-actions {
+              height: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 1rem;
+
+              .link {
+                top: 10px;
+                text-decoration: none;
+                border: #000 1px solid;
+                cursor: pointer;
+                color: white;
+                background-color: teal;
+                padding: 3px 5px;
+                // height: 2rem;
+                width: 5rem;
+                border-radius: 0.2rem;
+                text-align: center;
+                a {
+                  margin-top: 111px;
+                }
+              }
+            }
+          }
+
+          .content {
+            .ql-editor {
+              padding: 1rem 0;
+              line-height: 1.5rem;
+            }
+          }
+        }
+
+        .section-2 {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+
+          .title {
+            font-size: 22px;
+            margin-top: 0;
+            margin-bottom: 0;
+            margin-left: 1rem;
+          }
+          .post {
+            display: flex;
+            flex-direction: column;
+
+            .image {
+              position: relative;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              img {
+                width: 100%;
+                height: 150px;
+                object-fit: cover; //to maintain the aspect ratio
+              }
+            }
+
+            .content {
+              display: flex;
+              gap: 5px;
+
+              h1 {
+                font-size: 18px;
+
+                .link button {
+                  margin-left: 5px;
+                  background-color: white;
+                  color: teal;
+                  border: teal 1px solid;
+                  cursor: pointer;
+
+                  &:hover {
+                    background-color: $lightGreen;
+                    border: 1px solid white;
+                    color: black;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .alert {
+        position: fixed;
+        top: 2rem;
+        width: 30%;
+        margin-left: 50%;
+        transform: translateX(-60%);
+        border: 1px solid black;
+        padding: 0.6rem;
+        border-radius: 10px;
+        background-color: beige;
+        animation: slideDown 0.3s linear;
+        p {
+          font-weight: 500;
+        }
+        button {
+          margin-left: 100%;
+          transform: translateX(-100%);
+          cursor: pointer;
+          color: white;
+          background-color: teal;
+          border: 1px solid teal;
+          padding: 3px;
+          height: 2rem;
+          width: 3rem;
+          border-radius: 0.2rem;
+        }
+      }
+    }
+
+    // create a post
+    .create-post {
+      height: 80vh;
+      width: 90%;
+      margin: 0 auto;
+
+      .container {
+        height: 100%;
+        margin-top: 3rem;
+        display: flex;
+        gap: 1rem;
+        .section-1 {
+          flex: 5;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+
+          .title {
+            input {
+              width: 100%;
+              height: 2rem;
+              box-sizing: border-box;
+            }
+          }
+
+          .desc {
+            height: 100%;
+            // overflow: scroll;
+            overflow-x: hidden;
+            border-bottom: 1px solid #000;
+            .editor {
+              height: 100%;
+            }
+          }
+        }
+
+        .section-2 {
+          flex: 2;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+
+          .sub-section-1 {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            padding: 1rem;
+            border: 1px solid #000;
+            .upload-img {
+              display: flex;
+            }
+            .buttons {
+              display: flex;
+              justify-content: flex-end;
+              margin-right: 0;
+
+              button {
+                cursor: pointer;
+                color: white;
+                background-color: teal;
+                border: 1px solid teal;
+                padding: 3px 5px;
+                height: 2rem;
+                width: 6rem;
+                border-radius: 0.2rem;
+              }
+            }
+          }
+
+          .sub-section-2 {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            padding: 1rem;
+            border: 1px solid #000;
+            .cat {
+              display: flex;
+              align-items: center;
+            }
+          }
+        }
+
+        .alert {
+          position: fixed;
+          top: 2rem;
+          width: 30%;
+          margin-left: 50%;
+          transform: translateX(-60%);
+          border: 1px solid black;
+          padding: 0.6rem;
+          border-radius: 10px;
+          background-color: beige;
+          animation: slideDown 0.3s linear;
+          p {
+            font-weight: 500;
+          }
+          button {
+            margin-left: 100%;
+            transform: translateX(-100%);
+            cursor: pointer;
+            color: white;
+            background-color: teal;
+            border: 1px solid teal;
+            padding: 3px;
+            height: 2rem;
+            width: 3rem;
+            border-radius: 0.2rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    top: 0;
+  }
+  to {
+    top: 2rem;
+    opacity: 1;
+  }
+}
